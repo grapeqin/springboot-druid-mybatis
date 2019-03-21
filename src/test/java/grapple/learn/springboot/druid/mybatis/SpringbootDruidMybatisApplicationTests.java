@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.NONE)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 public class SpringbootDruidMybatisApplicationTests {
 
@@ -29,6 +30,6 @@ public class SpringbootDruidMybatisApplicationTests {
 		Assert.assertEquals(userDao.findAllUsers().size(),3);
 
 		Assert.assertEquals(ipDao.findAllIps().size(),3);
-		Assert.assertEquals(ipDao.findById(1L).getRequestIp(),"192.168.9.100");
+		Assert.assertEquals(ipDao.findById(1L).getRequestIp(),"192.168.9.66");
 	}
 }

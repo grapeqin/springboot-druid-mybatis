@@ -1,1 +1,0 @@
-insert into user(name,age) values ("老黄",35),("老刘",30),("小张",25);
